@@ -1,7 +1,7 @@
 const mongoose = require('../config/connectionmongoose');
 
 const SchemaMascota = new mongoose.Schema({
-    nombre: String
+    Name : String
 });
 
 const Mascota = mongoose.model('Mascota', SchemaMascota)
