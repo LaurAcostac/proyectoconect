@@ -13,16 +13,22 @@
         <div class="jumbotron">
             <form action="/mascotas" method="post">
                 <ul>
-                 <li>
-                   <label for="name">Nombre:</label>
-                   <input type="text" id="name" name="Name">
-                   <button type="submit">Enviar</button>
-                 </li>
+                    <li>
+                        <label for="idid">ID:</label>
+                        <input type="text" id="idid" name="Id">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="Name">
+                        <label for="idraza">Raza:</label>
+                        <input type="text" id="idraza" name="Raza">
+                        <button type="submit">Enviar</button>
+                    </li>
                 </ul>
-               </form>
+            </form>
             <% nombre.forEach(function(Mascotas){ %>
                 <h2>
                     <%=Mascotas.Name%>
+                    <%=Mascotas.raza%>
+                    <%=Mascotas.id%>
                 </h2>
                 <% })%>
 
