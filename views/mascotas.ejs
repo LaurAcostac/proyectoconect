@@ -6,35 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+
 </head>
 
 <body>
-    <main>
-        <div class="jumbotron">
-            <form action="/mascotas" method="post">
-                <ul>
-                    <li>
-                        <label for="idid">ID:</label>
-                        <input type="text" id="idid" name="Id">
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="Name">
-                        <label for="idraza">Raza:</label>
-                        <input type="text" id="idraza" name="Raza">
-                        <button type="submit">Enviar</button>
-                    </li>
-                </ul>
-            </form>
+
+    <div class="mb-3 m-5">
+        <form action="newmascota" method="POST">
+        <label for="idid" class="form-label">Id:</label>
+        <input type="text" class="form-control" id="idid" placeholder="ingrese un id" name="Id">
+
+        <label for="name" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="name" placeholder="ingrese un nombre" name="Name">
+
+        <label for="idraza" class="form-label">Raza:</label>
+        <input type="text" class="form-control" id="idraza" placeholder="ingrese una raza" name="Raza">
+
+        <button type="submit" class="btn btn-secondary m-5">Enviar</button> 
+    </form> 
+    </div>
+
+
+
+    <table class="table table-striped table-bordered m-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
             <% nombre.forEach(function(Mascotas){ %>
-                <h2>
-                    <%=Mascotas.Name%>
-                    <%=Mascotas.raza%>
-                    <%=Mascotas.id%>
-                </h2>
-                <% })%>
+          <tr>
+            <td><%=Mascotas.id%></td>
+            <td><%=Mascotas.Name%></td>
+            <td><%=Mascotas.raza%></td>
+            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalact">
+                Editar
+              </button>
+            </td>
+          </tr>
+          <% })%>
+        </tbody>
+      </table>
 
+
+      <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalact" tabindex="-1" aria-labelledby="modalactLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar mascota</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-    </main>
+        <div class="modal-body">
+            <label for="idid" class="form-label">Id:</label>
+            <input type="text" class="form-control" id="idid" placeholder="ingrese un id" name="Idact">
+    
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="name" placeholder="ingrese un nombre" name="Nameact">
+    
+            <label for="idraza" class="form-label">Raza:</label>
+            <input type="text" class="form-control" id="idraza" placeholder="ingrese una raza" name="Razaact">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Actualizar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>
