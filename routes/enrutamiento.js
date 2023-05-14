@@ -1,8 +1,9 @@
 const routermascotitas = require('../controller/mascotas')
 const express = require('express')
-const router = express.Router('')
+const router = express.Router()
 
 router.get('/mascotas', routermascotitas.mascotas)
-router.post('/newmascota', routermascotitas.nuevamascota)
+router.post('/newmascot', routermascotitas.nuevamascota)
+router.get('/eliminar/:id', routermascotitas.borrarmascota)
 
 module.exports= router 
