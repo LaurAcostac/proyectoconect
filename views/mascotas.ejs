@@ -22,9 +22,9 @@
         <input type="text" class="form-control" id="name" placeholder="ingrese un nombre" name="Name">
 
         <label for="idraza" class="form-label">Raza:</label>
-        <input type="text" class="form-control" id="idraza" placeholder="ingrese una raza" name="Raza">
+        <input type="text" class="form-control" id="idraza" placeholder="ingrese una raza" name="raza">
 
-        <button type="submit" class="btn btn-secondary m-5">Enviar</button> 
+        <input type="submit" class="btn btn-secondary m-5" value="Enviar"> 
     </form> 
     </div>
 
@@ -40,9 +40,9 @@
           </tr>
         </thead>
         <tbody>
-            <% nombre.forEach(function(Mascotas){ %>
+            <% listadoMascotas.forEach(function(Mascotas){ %>
           <tr>
-            <td><%=Mascotas.id%></td>
+            <td><%=Mascotas.Id%></td>
             <td><%=Mascotas.Name%></td>
             <td><%=Mascotas.raza%></td>
             <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalact">
