@@ -21,7 +21,11 @@ exports.nuevamascota =async(req, res)=> { //Se define el método.
 }
 
 exports.editarMascotas = async (req, res)=> {
-    const mascotas = await mascota.updateOne({Name})
+    const idedit = {id: req.body.Idact}
+    const update = {Name: req.body.Nameact,
+                    raza: req.body.Razaact}
+    await mascota.findOneAndUpdate(idedit, update)
+    res.redirect('/api/v1/mascotas')
 }
 
 

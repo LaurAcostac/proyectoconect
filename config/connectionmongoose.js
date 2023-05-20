@@ -1,12 +1,7 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-
-const uri ='mongodb+srv://LauraAdso:ZGi3b7V9f1CNADek@cluster0.idychtf.mongodb.net/Mascotas?retryWrites=true&w=majority';
+const uri =`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASSWORD}@cluster0.idychtf.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 mongoose.connect(uri, { useNewUrlParser: true });
 
-const parametros = {
-    usuario: process.env.DBUSER,
-    mipass: process.env.DBPASSWORD,
-    mibd: process.env.DBNAME
-}
 module.exports= mongoose
